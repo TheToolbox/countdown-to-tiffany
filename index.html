@@ -80,6 +80,7 @@
 <script>
     var tiff = (function () {
         var countdown = document.getElementById("countdown");
+        var caption = document.getElementById("caption");
         var nextTime = 1518884580000;
 
         function rightPad(string, digits) {
@@ -101,6 +102,11 @@
         function updateTime() {
             var now = Date.now();
             var diff = nextTime - now;
+            if (diff < 0) {
+                countdown.innerHTML = "Tiffany is here!";
+                caption.innerHTML = "";
+                return;
+            }
             var ms = diff % 1000;
             diff = Math.floor(diff / 1000);
             var sec = diff % 60;
