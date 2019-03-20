@@ -75,14 +75,17 @@
         </svg>
 
     </main>
-    <!--<footer>Check your TrueBlue account ;)</footer>-->
+    <footer>We have been together for <span id="days">∞</span> days!</footer>
 </body>
 <script>
     var tiff = (function () {
         var countdown = document.getElementById("countdown");
         var caption = document.getElementById("caption");
-        var nextTime = 1533384600000;
-
+        var daysEl = document.getElementbyId("days");
+        var nextTime = 1553400000000;
+        var startTime = 1433005200000;
+        var days = 0;
+        
         function rightPad(string, digits) {
             string = string + '';
             for (var i = string.length; i < digits; i++) {
@@ -116,7 +119,14 @@
             var hours = Math.floor(diff / 60);
             countdown.innerHTML = leftPad(hours, 2) + ":" + leftPad(min, 2) + ":" + leftPad(sec, 2) + "." + rightPad(ms, 3);
             window.requestAnimationFrame(updateTime);
-
+            
+            var millisecondsPerDay = 24 * 60 * 60 * 1000;
+            var newDays = (now - startTime) / millisecondsPerDay;
+            if (newDays !== days) {
+                days = newDays;
+                daysEl.innerHTML = '' + days;
+            }
+            
          }
 
         window.requestAnimationFrame(updateTime);
