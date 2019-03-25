@@ -105,6 +105,15 @@
         function updateTime() {
             var now = Date.now();
             var diff = nextTime - now;
+            
+
+            var millisecondsPerDay = 24 * 60 * 60 * 1000;
+            var newDays = Math.round((now - startTime) / millisecondsPerDay);
+            if (newDays !== days) {
+                days = newDays;
+                daysEl.innerHTML = '' + days;
+            }
+            
             if (diff < 0) {
                 countdown.innerHTML = "Tiffany is here!";
                 caption.innerHTML = "";
@@ -120,12 +129,12 @@
             countdown.innerHTML = leftPad(hours, 2) + ":" + leftPad(min, 2) + ":" + leftPad(sec, 2) + "." + rightPad(ms, 3);
             window.requestAnimationFrame(updateTime);
             
-            var millisecondsPerDay = 24 * 60 * 60 * 1000;
-            var newDays = Math.round((now - startTime) / millisecondsPerDay);
-            if (newDays !== days) {
-                days = newDays;
-                daysEl.innerHTML = '' + days;
-            }
+      
+
+
+
+
+
             
          }
 
