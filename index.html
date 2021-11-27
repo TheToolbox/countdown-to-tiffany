@@ -118,35 +118,11 @@
                 countdown.innerHTML = "She said yes!";
                 caption.innerHTML = "";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 const engagedDay = Math.round((nextTime - startTime) / millisecondsPerDay);
                 const engagedmentLength = Math.round((now - nextTime) / millisecondsPerDay);
 
                 document.querySelector('h1').innerText = "We are engaged!";
-                daysEl.innerText += ` We got engaged at ${engagedDay} days and have been engaged for ${engagedmentLength}!`;
+                document.querySelector('footer').innerText += ` We got engaged at ${engagedDay} days and have been engaged for ${engagedmentLength}!`;
                 return;
             }
             var ms = diff % 1000;
@@ -158,10 +134,7 @@
             var hours = Math.floor(diff / 60);
             countdown.innerHTML = leftPad(hours, 2) + ":" + leftPad(min, 2) + ":" + leftPad(sec, 2) + "." + rightPad(ms, 3);
             window.requestAnimationFrame(updateTime);
-            
-            
-
-            
+                                   
          }
 
         window.requestAnimationFrame(updateTime);
