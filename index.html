@@ -70,7 +70,7 @@
                 HH:MM:SS.ssss
             </text>
             <text id="caption" x="325" y="325" text-anchor="middle" alignment-baseline="middle" fill="white">
-                until Tiffany!
+                until <!-- I propose to --> Tiffany!
             </text>
         </svg>
 
@@ -82,7 +82,7 @@
         var countdown = document.getElementById("countdown");
         var caption = document.getElementById("caption");
         var daysEl = document.getElementById("days");
-        var nextTime = 1553400000000;
+        var nextTime = 1637445600000        ;
         var startTime = 1433005200000;
         var days = 0;
         
@@ -115,7 +115,7 @@
             }
             
             if (diff < 0) {
-                countdown.innerHTML = "Tiffany is here!";
+                countdown.innerHTML = "She said yes!";
                 caption.innerHTML = "";
                 return;
             }
